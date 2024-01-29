@@ -1,3 +1,5 @@
+import random
+
 ##Primeiro definir o esqueleto do jogo da velha
 def display_tabuleiro(tabuleiro):
     
@@ -41,14 +43,14 @@ def vencedor_check(tabuleiro, marca):
 
     #Checar todas as linhas
 
-    return ((tabuleiro[7] == marca and tabuleiro[8] == marca and tabuleiro[9] == marca) or # horizontal topo
-    (tabuleiro[4] == marca and tabuleiro[5] == marca and tabuleiro[6] == marca) or # horizontal meio
-    (tabuleiro[1] == marca and tabuleiro[2] == marca and tabuleiro[3] == marca) or # horizontal inferior
-    (tabuleiro[7] == marca and tabuleiro[4] == marca and tabuleiro[1] == marca) or # vertical da esquerda
-    (tabuleiro[8] == marca and tabuleiro[5] == marca and tabuleiro[2] == marca) or # vertical do meio
-    (tabuleiro[9] == marca and tabuleiro[6] == marca and tabuleiro[3] == marca) or # vertical da direita
-    (tabuleiro[7] == marca and tabuleiro[5] == marca and tabuleiro[3] == marca) or # diagonal
-    (tabuleiro[9] == marca and tabuleiro[5] == marca and tabuleiro[1] == marca)) # diagonal
+    return  ((tabuleiro[7] == marca and tabuleiro[8] == marca and tabuleiro[9] == marca) or # horizontal topo
+            (tabuleiro[4] == marca and tabuleiro[5] == marca and tabuleiro[6] == marca) or # horizontal meio
+            (tabuleiro[1] == marca and tabuleiro[2] == marca and tabuleiro[3] == marca) or # horizontal inferior
+            (tabuleiro[7] == marca and tabuleiro[4] == marca and tabuleiro[1] == marca) or # vertical da esquerda
+            (tabuleiro[8] == marca and tabuleiro[5] == marca and tabuleiro[2] == marca) or # vertical do meio
+            (tabuleiro[9] == marca and tabuleiro[6] == marca and tabuleiro[3] == marca) or # vertical da direita
+            (tabuleiro[7] == marca and tabuleiro[5] == marca and tabuleiro[3] == marca) or # diagonal
+            (tabuleiro[9] == marca and tabuleiro[5] == marca and tabuleiro[1] == marca)) # diagonal
 
 ## Determinar aleatoriamente qual dos jogadores começa primeiro
 def escolher_primeiro():
@@ -86,9 +88,9 @@ def escolha_jogador(tabuleiro):
 ##Criar uma função para determinar se o jogador que jogar novamente ou parar
 def replay():
 
-    escolha = input("Quer jogar de novo? Diga Sim ou Não")
+    escolha = input("Quer jogar de novo? S ou N").upper()
 
-    return escolha == 'Sim'
+    return escolha == 'S'
 
 #Juntar todos os codigos para rodar o jogo
 print("Bem Vindo ao JOGO DA VELHA")
@@ -101,7 +103,7 @@ while True:
 
     print(turno + " Irá jogar primeiro")
 
-    jogar = input("Pronto para jogar? S ou N")
+    jogar = input("Pronto para jogar? S ou N").upper()
 
     if jogar == "S":
         jogue = True
